@@ -1,0 +1,24 @@
+# my global config
+global:
+  scrape_interval: 20s  # Set the scrape interval to every 20 seconds. Default is every 1 minute.
+  evaluation_interval: 20s  # Evaluate rules every 20 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+    metrics_path: '/metrics'
+    scheme: 'https'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    static_configs:
+      - targets: ["animated-giggle-pj77x6w9px953x45-9090.app.github.dev"]
+
+  - job_name: "patient-app"
+    metrics_path: '/metrics'
+    scheme: 'https'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    static_configs:
+      - targets: ["animated-giggle-pj77x6w9px953x45-8001.app.github.dev"]
